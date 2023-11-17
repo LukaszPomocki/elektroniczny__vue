@@ -490,4 +490,53 @@ main{
   .artykuly-przycisk1:hover , .artykuly-przycisk2:hover{
     background-color: var(--czcionka-czarny);
   }
+
+@media (max-width: 475px) {
+
+}
+
+@media (max-width: 640px) {
+    .main-lewy{
+        display: none;
+    }
+
+    .main-prawy{
+        width: 90%;
+        margin-top: 9em;
+        margin-left: 1.7em;
+    }   
+
+    .artykuly-cena h1{
+        font-size: var(--rozmiar-2xl);
+    }
+
+    .artykuly-statystyki{
+        margin-left: 1em;
+    }
+}
+
+@media (max-width: 768px) {
+/* main */
+main{
+    display: flex;
+    flex-direction: column;
+}
+
+.main-lewy{
+    width: 70%;
+    margin: var(--rozmiar-xl);
+}
+
+.sortowanie-lewe{
+    margin-left: var(--rozmiar-xxs);
+}
+
+.wraper-dol{
+    display: flex;
+    flex-direction: column;
+}
+}
+
+@media (max-width: 1024px) {
+}
 </style>

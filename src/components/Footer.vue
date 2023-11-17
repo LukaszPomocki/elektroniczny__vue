@@ -2,7 +2,7 @@
   <footer>
       <div class="footer-kontener">
         <h4>Produkty</h4>
-        <ul class="footer-lista">
+        <ul>
           <li><a href="#" class="footer-link">Telefony i Smartwatche</a></li>
           <li><a href="#" class="footer-link">RTV i Telewizory</a></li>
           <li><a href="#" class="footer-link">Komputery i Tablety</a></li>
@@ -21,7 +21,7 @@
 
       <div class="footer-kontener">
         <h4>Na skróty</h4>
-        <ul class="footer-lista">
+        <ul>
           <li><a href="#" class="footer-link">Aktualności</a></li>
           <li><a href="#" class="footer-link">Klub</a></li>
           <li><a href="#" class="footer-link">Pomoc</a></li>
@@ -43,7 +43,7 @@
       </div>
       <div class="footer-kontener">
         <h4>Strefa marek</h4>
-        <ul class="footer-lista">
+        <ul>
           <li><a href="#" class="footer-link">Sklep Apple</a></li>
           <li><a href="#" class="footer-link">Sklep Xiaomi</a></li>
           <li><a href="#" class="footer-link">Sklep Bosch</a></li>
@@ -60,7 +60,7 @@
 
       <div class="footer-kontener">
         <h4>Firma</h4>
-        <ul class="footer-lista">
+        <ul>
           <li><a href="#" class="footer-link">O nas</a></li>
           <li><a href="#" class="footer-link">Informacje prasowe</a></li>
           <li><a href="#" class="footer-link">Zrównoważony rozwój - BetterWay</a></li>
@@ -87,15 +87,17 @@ export default {
 <style>
 footer{
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
     background-color: var(--czcionka-bialy);
     border-top: 1px solid var(--tlo-szary);
     }
 
     .footer-kontener{
-        padding: var(--rozmiar-lg);
+        width: 25%;
     }
-
+    .footer-kontener ul, h4{
+      padding-left: 1rem;
+    }
 
     .footer-link{
         color: var(--czcionka-czarny);
@@ -108,4 +110,25 @@ footer{
         color: var(--tlo-czerwony);
         text-decoration: underline;
     }
+
+@media (max-width: 475px) {
+}
+
+@media (max-width: 640px) {
+    .footer-link{
+        font-size: var(--rozmiar-xs);
+    }
+}
+
+@media (max-width: 768px) {
+.footer-link{
+    font-size: var(--rozmiar-sm);
+}
+.footer-kontener{
+    width: 50%;
+}
+}
+
+@media (max-width: 1024px) {
+}
 </style>

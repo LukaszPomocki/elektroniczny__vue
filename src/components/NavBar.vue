@@ -35,11 +35,11 @@ nav{
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 3rem;
     padding: 0;
 }
 
 .nav__lista a{
-    padding: var(--rozmiar-base);
     font-size: var(--rozmiar-base);
     color: var(--czcionka-bialy);
     transition: color 0.3s;
@@ -56,5 +56,33 @@ nav{
     width: var(--rozmiar-5xl);
     height: var(--rozmiar-5xl);
     cursor: pointer;
+}
+@media (max-width: 475px) {
+
+}
+
+@media (max-width: 640px) {
+    .nav__lista li{
+        margin: var(--rozmiar-xxs);
+    }
+    nav{
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+nav{
+    padding-top: 7em;
+    padding-bottom: var(--rozmiar-xxs);
+}
+    .nav__lista{
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .nav__lista{
+        gap: 1.5rem;
+    }
 }
 </style>

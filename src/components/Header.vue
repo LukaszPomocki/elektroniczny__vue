@@ -1,13 +1,10 @@
 <template>
   <header>
-        <div class="header-lewy">
           <form action="" class="header-formularz">
             <input type="text" placeholder="" class="header-placeholder">
             <button type="submit" class="przycisk-lupa"><img src="../assets/Lupa.svg" alt="Lupa" class="obrazek-lupa"></button>
           </form>
-        </div>
         
-          <div class="header-prawy">
             <ul class="header-lista">
                 <li class="header-link1"><svg xmlns="http://www.w3.org/2000/svg" 
                     fill="none" viewBox="0 0 24 24" stroke-width="1.5" 
@@ -26,17 +23,18 @@
                 <li class="header-link1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="Obrazek-user">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
                   </svg>
-                  <a href="#" class="header-link">Koszyk</a></li>
-                  <li class="header-link1"><button onclick="funkcjaRozwiniecie()" class="header__przycisk"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-              </svg>
-              </button>
-              </li>
+                  <a href="#" class="header-link">Koszyk</a>
+                </li>
+                <li class="header-link1">
+                    <button @click="pokazPrzycisk" class="header__przycisk">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        </svg>
+                    </button>
+                </li>
             </ul>
-              </div>
               <!-- Koniec head prawy -->
-              <div class="header__rozwiniecie" id="header__rozwiniecie">
-                  <ul class="nav__lista">
+              <div v-if="pokaz" class="header__rozwiniecie">
+                  <ul class="nav__lista2">
                     <li><a href="#">Produkty</a></li>
                     <li><a href="#">Promocje</a></li>
                     <li><a href="#">Outlet</a></li>
@@ -52,7 +50,16 @@
 
 <script>
 export default {
-
+data(){
+    return{
+        pokaz: true
+    }
+},
+methods: {
+    pokazPrzycisk(){
+        this.pokaz = !this.pokaz
+    }
+}
 }
 </script>
 
@@ -103,6 +110,7 @@ header{
     align-items: center;
     background-color: var(--czcionka-bialy);
     padding: var(--rozmiar-xxs);
+    margin-right: var(--rozmiar-3xl);
 }
 
 .header-placeholder{
@@ -160,7 +168,7 @@ header{
     padding: var(--rozmiar-xxs);
 }
 
-
+/* Przycisk */
 
 .header__przycisk{
     color: var(--czcionka-bialy);
@@ -176,8 +184,8 @@ header{
 .header__rozwiniecie{
     padding: 0 18px;
     width: 100%;
-    display: none;
     background-color: var(--kolor-kremowy);
+    flex-direction: column;
 }
 
 .header__lista li{
@@ -192,6 +200,69 @@ header{
 
 .header__lista a:hover{
     color: var(--tlo-szary);
+}
+/* NavLista2 */
+.nav__lista2{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 0;
+}
+.nav__lista2 li {
+    padding: 1rem;
+}
+
+.nav__lista2 a{
+    font-size: var(--rozmiar-base);
+    color: var(--czcionka-bialy);
+    transition: color 0.3s;
+    padding: 1rem;
+}
+
+.nav__lista2 a:hover{
+    color: var(--tlo-szary);
+    border-bottom: 1px solid var(--czcionka-bialy);
+}
+
+@media (max-width: 475px) {
+    .header-placeholder{
+        font-size: var(--rozmiar-xs);
+    }
+    .header-lista{
+        gap: 1em;
+    }
+}
+
+@media (max-width: 640px) {
+
+header{
+     margin-top: -2rem;
+    padding-bottom: var(--rozmiar-xxs);
+    flex-direction: column;
+}
+.header-placeholder{
+    min-width: 50vw;
+}
+.header__przycisk{
+    display: block;
+}
+}
+@media (min-width: 640px) {
+.header__rozwiniecie{
+    display: none;
+}
+}
+
+
+@media (max-width: 768px) {
+.header-link{
+    font-size: var(--rozmiar-sm);
+}
+}
+
+@media (max-width: 1024px) {
+    
+    
 }
 
 </style>
