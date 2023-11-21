@@ -42,6 +42,7 @@ nav{
 .nav__lista a{
     font-size: var(--rozmiar-base);
     color: var(--czcionka-bialy);
+    padding-bottom: 0.3rem;
     transition: color 0.3s;
 }
 
